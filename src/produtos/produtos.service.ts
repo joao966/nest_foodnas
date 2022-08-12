@@ -1,13 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
+import { typeList } from 'src/types/typesGlobals';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { produto } from './entities/produto.entity'
-
-interface typeList {
-  message: string,
-  info: Promise<produto[]>,
-  count: number
-}
 
 @Injectable()
 export class ProdutosService {
@@ -17,17 +12,17 @@ export class ProdutosService {
   ) {}
 
 
-  async create(createProdutoDto: any) {
-    return await this.produtoRepository.create<any>(createProdutoDto);
+  async create(createProdutoDto: CreateProdutoDto) {
+    return await this.produtoRepository.create(createProdutoDto);
   }
 
-  async findAll(): Promise<any>  {
+  async findAll(): Promise<typeList>  {
     const response = await this.produtoRepository.findAll<produto>();
     
     return {
       message: "success",
-      info: response,
-      count: (await response).length
+      count: response.length,
+      info: response
     };
   }
 
