@@ -3,6 +3,12 @@ import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { produto } from './entities/produto.entity'
 
+interface typeList {
+  message: string,
+  info: Promise<produto[]>,
+  count: number
+}
+
 @Injectable()
 export class ProdutosService {
   constructor(
@@ -15,8 +21,14 @@ export class ProdutosService {
     return 'This action adds a new produto';
   }
 
-  async findAll(): Promise<produto[]> {
-    return this.produtoRepository.findAll<produto>();
+  async findAll(): Promise<any>  {
+    const response = await this.produtoRepository.findAll<produto>();
+    
+    return {
+      message: "success",
+      info: response,
+      count: (await response).length
+    };
   }
 
   findOne(id: number) {
