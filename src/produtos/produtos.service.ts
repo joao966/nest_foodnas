@@ -17,8 +17,8 @@ export class ProdutosService {
   ) {}
 
 
-  create(createProdutoDto: CreateProdutoDto) {
-    return 'This action adds a new produto';
+  async create(createProdutoDto: any) {
+    return await this.produtoRepository.create<any>(createProdutoDto);
   }
 
   async findAll(): Promise<any>  {
