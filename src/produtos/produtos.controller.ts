@@ -2,7 +2,6 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ProdutosService } from './produtos.service';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
-import { typeList } from 'src/types/typesGlobals';
 
 @Controller('produtos')
 export class ProdutosController {
@@ -14,7 +13,7 @@ export class ProdutosController {
   }
 
   @Get()
-  findAll(): Promise<typeList> {
+  findAll() {
     return this.produtosService.findAll();
   }
 
