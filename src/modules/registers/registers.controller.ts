@@ -1,15 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Ip, Req } from '@nestjs/common';
 import { RegistersService } from './registers.service';
 import { CreateRegistersDto } from './dto/create-register.dto';
 import { UpdateRegisterDto } from './dto/update-register.dto';
+import { getClientIp } from '@supercharge/request-ip'
 
 @Controller('registers')
 export class RegistersController {
   constructor(private readonly registersService: RegistersService) {}
 
   @Post()
-  create(@Body() createRegisterDto: CreateRegistersDto) {
-    return this.registersService.create(createRegisterDto);
+  create(@Body() createRegisterDto: CreateRegistersDto, @Req() request: any, @Ip() ip: any) {
+    const ipSuperchange = getClientIp(request)
+    console.log(ip)
+    return {ipSuperchange, ip};
   }
 
   @Get()
