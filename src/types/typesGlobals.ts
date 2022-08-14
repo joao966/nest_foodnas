@@ -1,5 +1,5 @@
-import { produto } from "src/produtos/entities/produto.entity";
-import { registers } from "src/registers/entities/register.entity";
+import { produto } from "src/modules/produtos/entities/produto.entity";
+import { registers } from "src/modules/registers/entities/register.entity";
 
 export interface typeList {
   message: string,
