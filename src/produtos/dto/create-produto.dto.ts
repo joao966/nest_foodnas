@@ -1,5 +1,10 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsEnum, IsNotEmpty } from 'class-validator';
 import { Expose } from 'class-transformer';
+
+enum Tipo {
+  unidade = 'unidade',
+  caixa = 'caixa',
+}
 
 export class CreateProdutoDto {
   @IsNotEmpty()
@@ -16,5 +21,8 @@ export class CreateProdutoDto {
   ml: number;
 
   @IsNotEmpty()
+  @IsEnum(Tipo, {
+    message: 'Tipo must be either unidade or caixa',
+  })
   tipo: string;
 }
