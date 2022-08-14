@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
-import { produto } from './produtos/entities/produto.entity';
-import { registers } from './registers/entities/register.entity';
+import { produto } from '../produtos/entities/produto.entity';
+import { registers } from '../registers/entities/register.entity';
 import 'dotenv/config';
 
 export const databaseProviders = [
