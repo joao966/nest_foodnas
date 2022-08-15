@@ -1,7 +1,7 @@
 import { produto } from "src/modules/produtos/entities/produto.entity";
 import { registers } from "src/modules/registers/entities/register.entity";
 
-export interface typeList {
+export interface typeListProduto {
   message: string,
   count: number,
   info: produto[]
