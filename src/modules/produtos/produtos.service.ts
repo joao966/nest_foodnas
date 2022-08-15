@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { typeList } from 'src/types/typesGlobals';
+import { typeListProduto } from 'src/types/typesGlobals';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { produto } from './entities/produto.entity'
@@ -16,7 +16,7 @@ export class ProdutosService {
     return await this.produtoRepository.create(createProdutoDto);
   }
 
-  async findAll(): Promise<typeList>  {
+  async findAll(): Promise<typeListProduto>  {
     const response = await this.produtoRepository.findAll<produto>();
     
     return {
