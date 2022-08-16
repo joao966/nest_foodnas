@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { typeListProduto } from 'src/types/typesGlobals';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { produto } from './entities/produto.entity'
+import { typeListProduto } from '../../types/produto'
 
 @Injectable()
 export class ProdutosService {

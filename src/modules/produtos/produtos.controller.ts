@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ProdutosService } from './produtos.service';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
-import { typeListProduto } from 'src/types/typesGlobals';
+import { typeListProduto } from '../../types/produto';
 
 @Controller('produtos')
 export class ProdutosController {
