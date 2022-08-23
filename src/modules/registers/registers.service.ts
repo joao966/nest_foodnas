@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { typeListRegister } from 'src/types/typesGlobals';
+import { typeListRegister } from 'src/types/registro';
 import { CreateRegistersDto } from './dto/create-register.dto';
 import { UpdateRegisterDto } from './dto/update-register.dto';
 import { registers } from './entities/register.entity';
@@ -12,14 +12,9 @@ export class RegistersService {
     private registersRepository: typeof registers
   ) {}
 
-
-
   async create(CreateRegistersDto: CreateRegistersDto): Promise<registers> {
     return this.registersRepository.create(CreateRegistersDto);
   }
-
-
-
 
   async findAll(): Promise<typeListRegister> {
     const response = await this.registersRepository.findAll();

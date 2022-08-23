@@ -8,6 +8,9 @@ enum Tipo {
 
 export class CreateProdutoDto {
   @IsNotEmpty()
+  codigo_barra: string;
+
+  @IsNotEmpty()
   nome: string;
 
   @IsNotEmpty()
