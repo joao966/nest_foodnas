@@ -22,7 +22,9 @@ export const databaseProviders = [
         }
       });
       sequelize.addModels([produto, registers]);
-      await sequelize.sync();
+      await sequelize.sync({
+        // force: true,
+      });
       return sequelize;
     },
   },

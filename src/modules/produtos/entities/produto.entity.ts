@@ -7,10 +7,16 @@ export class produto extends Model<CreateProdutoDto> {
     type: DataType.STRING,
     allowNull: false,
   })
+  codigo_barra: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
   nome: string;
   
   @Column({
-    type: DataType.FLOAT,
+    type: DataType.DECIMAL(10,2),
     allowNull: false,
   })
   valor: number;
