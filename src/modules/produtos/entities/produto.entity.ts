@@ -25,12 +25,6 @@ export class produto extends Model<CreateProdutoDto> {
     type: DataType.INTEGER,
     allowNull: false,
   })
-  quantidade: number;
-  
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
   ml: number;
   
   @Column({
