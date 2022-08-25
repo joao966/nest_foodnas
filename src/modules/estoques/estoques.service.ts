@@ -1,16 +1,26 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateEstoqueDto } from './dto/create-estoque.dto';
 import { UpdateEstoqueDto } from './dto/update-estoque.dto';
+import { estoques } from './entities/estoque.entity';
 
 @Injectable()
 export class EstoquesService {
-  create(createEstoqueDto: CreateEstoqueDto) {
-    return 'This action adds a new estoque';
+
+  constructor(
+    @Inject('ESTOQUE_REPOSITORY')
+    private estoqueRepository: typeof estoques
+  ) {}
+
+  async create(createProdutoDto: any) {
+    return await this.estoqueRepository.create(createProdutoDto);
   }
 
-  findAll() {
-    return `This action returns all estoques`;
+  async findAll(): Promise<any>  {
+    const response = await this.estoqueRepository.findAll<estoques>();
+    
+    return response;
   }
+
 
   findOne(id: number) {
     return `This action returns a #${id} estoque`;

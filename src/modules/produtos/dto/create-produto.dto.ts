@@ -18,9 +18,6 @@ export class CreateProdutoDto {
   valor: number;
 
   @IsNotEmpty()
-  quantidade: number;
-
-  @IsNotEmpty()
   ml: number;
 
   @IsNotEmpty()
