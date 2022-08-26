@@ -1,4 +1,12 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateEstoqueDto } from './create-estoque.dto';
+import { IsNotEmpty } from "class-validator";
 
-export class UpdateEstoqueDto extends PartialType(CreateEstoqueDto) {}
+export class CreateEstoqueDto {
+  @IsNotEmpty()
+  quantidade_total_caixa: number;
+
+  @IsNotEmpty()
+  quantidade_total_unidade: boolean;
+
+  @IsNotEmpty()
+  codigo_barra: string;
+}
