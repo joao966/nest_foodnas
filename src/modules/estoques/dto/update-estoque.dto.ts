@@ -1,6 +1,6 @@
 import { IsNotEmpty } from "class-validator";
 
-export class CreateEstoqueDto {
+export class UpdateEstoqueDto {
   @IsNotEmpty()
   quantidade_total_caixa: number;
 

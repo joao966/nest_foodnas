@@ -1,6 +1,5 @@
-import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Table, Column, Model, DataType } from 'sequelize-typescript';
 import { CreateProdutoDto } from '../dto/create-produto.dto';
-import { Estoques } from '../../estoques/entities/estoque.entity';
 
 @Table
 export class produto extends Model<CreateProdutoDto> {
@@ -28,14 +27,4 @@ export class produto extends Model<CreateProdutoDto> {
     allowNull: false,
   })
   tipo: string;
-
-  @ForeignKey(() => Estoques)
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
-  estoquesId: number;
-  
-  @BelongsTo(() => Estoques)
-  estoques: Estoques
 }
