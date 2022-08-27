@@ -1,8 +1,8 @@
-import { estoques } from './entities/estoque.entity';
+import { Estoques } from './entities/estoque.entity';
 
 export const estoquesProviders = [
   {
     provide: 'ESTOQUE_REPOSITORY',
-    useValue: estoques,
+    useValue: Estoques,
   },
 ];

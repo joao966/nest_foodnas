@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { produto } from '../modules/produtos/entities/produto.entity';
 import { registers } from '../modules/registers/entities/register.entity';
-import { estoques } from '../modules/estoques/entities/estoque.entity';
+import { Estoques } from '../modules/estoques/entities/estoque.entity';
 import 'dotenv/config';
 
 export const databaseProviders = [
@@ -22,7 +22,7 @@ export const databaseProviders = [
           }
         }
       });
-      sequelize.addModels([produto, registers, estoques]);
+      sequelize.addModels([produto, registers, Estoques]);
       await sequelize.sync({
         force: true,
       });
