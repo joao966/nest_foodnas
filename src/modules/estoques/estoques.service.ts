@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateEstoqueDto } from './dto/create-estoque.dto';
 import { UpdateEstoqueDto } from './dto/update-estoque.dto';
-import { estoques } from './entities/estoque.entity';
+import { Estoques } from './entities/estoque.entity';
 
 @Injectable()
 export class EstoquesService {
 
   constructor(
     @Inject('ESTOQUE_REPOSITORY')
-    private estoqueRepository: typeof estoques
+    private estoqueRepository: typeof Estoques
   ) {}
 
   async create(createProdutoDto: any) {
@@ -16,7 +16,7 @@ export class EstoquesService {
   }
 
   async findAll(): Promise<any>  {
-    const response = await this.estoqueRepository.findAll<estoques>();
+    const response = await this.estoqueRepository.findAll<Estoques>();
     
     return response;
   }

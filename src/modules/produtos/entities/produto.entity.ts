@@ -1,7 +1,6 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { CreateProdutoDto } from '../dto/create-produto.dto';
-import { estoques } from '../../estoques/entities/estoque.entity';
-
+import { Estoques } from '../../estoques/entities/estoque.entity';
 
 @Table
 export class produto extends Model<CreateProdutoDto> {
@@ -30,10 +29,13 @@ export class produto extends Model<CreateProdutoDto> {
   })
   tipo: string;
 
-  @ForeignKey(() => estoques)
-  @Column
-  codigo_barra: string;
-
-  // @BelongsTo(() => estoques)
-  // codigo_barra: estoques;
+  @ForeignKey(() => Estoques)
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  estoquesId: number;
+  
+  @BelongsTo(() => Estoques)
+  estoques: Estoques
 }
