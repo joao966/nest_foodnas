@@ -1,7 +1,7 @@
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
 import { CreateProdutoDto } from '../dto/create-produto.dto';
 
-@Table
+@Table({tableName: 'produtos'})
 export class produto extends Model<CreateProdutoDto> {
   @Column({
     type: DataType.STRING,

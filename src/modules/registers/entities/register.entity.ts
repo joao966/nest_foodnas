@@ -1,7 +1,7 @@
 import { Table, Column, Model } from 'sequelize-typescript';
 import { CreateRegistersDto } from '../dto/create-register.dto';
 
-@Table
+@Table({tableName: 'registers'})
 export class registers extends Model<CreateRegistersDto> {
   @Column
   nome: string;

@@ -3,7 +3,9 @@ import { RegistersService } from './registers.service';
 import { CreateRegistersDto } from './dto/create-register.dto';
 import { UpdateRegisterDto } from './dto/update-register.dto';
 import { getClientIp } from '@supercharge/request-ip'
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('registers')
 @Controller('registers')
 export class RegistersController {
   constructor(private readonly registersService: RegistersService) {}
