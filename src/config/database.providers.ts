@@ -11,20 +11,17 @@ export const databaseProviders = [
       const sequelize = new Sequelize({
         dialect: 'mysql',
         port: Number(process.env.DB_PORT),
-        username: process.env.DB_USERNAME,
-        database: process.env.DB_DATABASE,
-        password: process.env.DB_PASSWORD,
         host: process.env.DB_HOST,
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
         dialectOptions: {
-          ssl: {
-            require: true,
-            rejectUnauthorized: process.env.DB_SSL
-          }
-        }
+          ssl: process.env.DB_SSL
+      },
       });
       sequelize.addModels([produto, registers, Estoques]);
       await sequelize.sync({
-        force: true,
+        // force: true,
       });
       return sequelize;
     },
