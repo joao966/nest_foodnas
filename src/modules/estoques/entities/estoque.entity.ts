@@ -3,7 +3,7 @@ import { CreateEstoqueDto } from '../dto/create-estoque.dto';
 import { produto } from '../../produtos/entities/produto.entity';
 
 
-@Table
+@Table({tableName: 'estoques'})
 export class Estoques extends Model<CreateEstoqueDto> {
   @Column({
     type: DataType.INTEGER,
