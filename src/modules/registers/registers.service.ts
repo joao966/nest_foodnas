@@ -30,8 +30,8 @@ export class RegistersService {
     return `This action returns a #${id} register`;
   }
 
-  update(id: number, updateRegisterDto: UpdateRegisterDto) {
-    return `This action updates a #${id} register`;
+  update(email: string, updateRegisterDto: UpdateRegisterDto) {
+    return this.registersRepository.update(updateRegisterDto, {where: {email}});
   }
 
   remove(id: number) {
