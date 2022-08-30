@@ -13,8 +13,9 @@ export class RegistersController {
   @Post()
   create(@Body() createRegisterDto: CreateRegistersDto, @Req() request: any, @Ip() ip: any) {
     const ipSuperchange = getClientIp(request)
-    console.log(ip)
-    return {ipSuperchange, ip};
+    console.log('ip: ', ip);
+    console.log(ipSuperchange)
+    return this.registersService.create(createRegisterDto);
   }
 
   @Get()
@@ -27,9 +28,9 @@ export class RegistersController {
     return this.registersService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRegisterDto: UpdateRegisterDto) {
-    return this.registersService.update(+id, updateRegisterDto);
+  @Patch(':email')
+  update(@Param('email') email: string, @Body() updateRegisterDto: UpdateRegisterDto) {
+    return this.registersService.update(email, updateRegisterDto);
   }
 
   @Delete(':id')
