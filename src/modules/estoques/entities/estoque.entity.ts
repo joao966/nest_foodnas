@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, HasMany, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, ForeignKey, BelongsTo, HasOne, PrimaryKey } from 'sequelize-typescript';
 import { CreateEstoqueDto } from '../dto/create-estoque.dto';
 import { Produtos } from '../../produtos/entities/produto.entity';
 
@@ -19,8 +19,11 @@ export class Estoques extends Model<CreateEstoqueDto> {
 
   @ForeignKey(() => Produtos)
   @Column
-  produto_id: number
+  produtoId: number
 
-  @BelongsTo(() => Produtos)
-  codigo_barra: Produtos[]
+  // @BelongsTo(() => Produtos)
+  // estoqueId: Produtos
+
+  @HasOne(() => Produtos, 'estoqueId')
+  produto: Produtos;
 }
