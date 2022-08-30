@@ -3,7 +3,9 @@ import { ProdutosService } from './produtos.service';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { typeListProduto } from '../../types/produto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('produtos')
 @Controller('produtos')
 export class ProdutosController {
   constructor(private readonly produtosService: ProdutosService) {}

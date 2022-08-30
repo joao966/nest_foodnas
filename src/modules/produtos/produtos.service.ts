@@ -1,14 +1,14 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { CreateProdutoDto } from './dto/create-produto.dto';
 import { UpdateProdutoDto } from './dto/update-produto.dto';
-import { produto } from './entities/produto.entity'
+import { Produtos } from './entities/produto.entity'
 import { typeListProduto } from '../../types/produto'
 
 @Injectable()
 export class ProdutosService {
   constructor(
     @Inject('PRODUTO_REPOSITORY')
-    private produtoRepository: typeof produto
+    private produtoRepository: typeof Produtos
   ) {}
 
 
@@ -17,7 +17,7 @@ export class ProdutosService {
   }
 
   async findAll(): Promise<typeListProduto>  {
-    const response = await this.produtoRepository.findAll<produto>();
+    const response = await this.produtoRepository.findAll<Produtos>();
     
     return {
       message: "success",

@@ -13,12 +13,11 @@ async function bootstrap() {
     .setTitle('FoodNas-API')
     .setDescription('A API FoodNas API é um gerenciador de mercadorias')
     .setVersion('1.0')
-    .addTag('foodnas')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, {
-    swaggerOptions: { defaultModelsExpandDepth: -1 },
+    swaggerOptions: { defaultModelsExpandDepth: 1 },
     customSiteTitle: 'FoodNas-API'
   });
 
