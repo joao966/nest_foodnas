@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import { produto } from '../modules/produtos/entities/produto.entity';
+import { Produtos } from '../modules/produtos/entities/produto.entity';
 import { registers } from '../modules/registers/entities/register.entity';
 import { Estoques } from '../modules/estoques/entities/estoque.entity';
 import 'dotenv/config';
@@ -19,7 +19,7 @@ export const databaseProviders = [
           ssl: process.env.DB_SSL
       },
       });
-      sequelize.addModels([produto, registers, Estoques]);
+      sequelize.addModels([Produtos, registers, Estoques]);
       await sequelize.sync({
         // force: true,
       });
