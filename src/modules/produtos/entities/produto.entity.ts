@@ -1,8 +1,9 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Estoques } from '@Modules/estoques/entities/estoque.entity';
+import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { CreateProdutoDto } from '../dto/create-produto.dto';
 
 @Table({tableName: 'produtos'})
-export class produto extends Model<CreateProdutoDto> {
+export class Produtos extends Model<CreateProdutoDto> {
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -27,4 +28,11 @@ export class produto extends Model<CreateProdutoDto> {
     allowNull: false,
   })
   tipo: string;
+
+  @ForeignKey(() => Estoques)
+  @Column
+  estoque_id: number
+
+  @BelongsTo(() => Estoques)
+  estoque: Estoques
 }
