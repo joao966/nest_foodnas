@@ -21,7 +21,7 @@ export const databaseProviders = [
       });
       sequelize.addModels([Produtos, registers, Estoques]);
       await sequelize.sync({
-        force: true,
+        // force: true,
       });
       return sequelize;
     },
