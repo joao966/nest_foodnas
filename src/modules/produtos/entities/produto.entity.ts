@@ -4,12 +4,6 @@ import { CreateProdutoDto } from '../dto/create-produto.dto';
 
 @Table({tableName: 'produtos'})
 export class Produtos extends Model<CreateProdutoDto> {
-  @ForeignKey(() => Estoques)
-  @PrimaryKey
-  @Default(DataType.UUIDV4)
-  @Column(DataType.UUID)
-  id: number;
-
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -41,13 +35,10 @@ export class Produtos extends Model<CreateProdutoDto> {
   })
   tipo: string;
 
-  // @ForeignKey(() => Estoques)
-  // @Column
-  // estoqueId: number;
-
-  // @HasOne(() => Estoques)
-  // produtoId: Estoques;
-
-  @BelongsTo(() => Estoques, 'estoqueId')
+  @ForeignKey(() => Estoques)
+  @Column
+  estoqueId: number;
+ 
+  @BelongsTo(() => Estoques)
   estoque: Estoques
 }
