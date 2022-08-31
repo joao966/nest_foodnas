@@ -30,8 +30,8 @@ export class ProdutosService {
     return `This action returns a #${id} produto`;
   }
 
-  update(id: number, updateProdutoDto: UpdateProdutoDto) {
-    return `This action updates a #${id} produto`;
+  update(codigo_barra: string, updateProdutoDto: UpdateProdutoDto) {
+    return this.produtoRepository.update(updateProdutoDto, { where: { codigo_barra }});
   }
 
   remove(id: number) {

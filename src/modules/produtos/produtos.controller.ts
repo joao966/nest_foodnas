@@ -25,9 +25,9 @@ export class ProdutosController {
     return this.produtosService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
-    return this.produtosService.update(+id, updateProdutoDto);
+  @Patch(':codigo_barra')
+  update(@Param('codigo_barra') codigo_barra: string, @Body() updateProdutoDto: UpdateProdutoDto) {
+    return this.produtosService.update(codigo_barra, updateProdutoDto);
   }
 
   @Delete(':id')
