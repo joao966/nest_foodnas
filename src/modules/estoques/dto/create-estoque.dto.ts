@@ -16,10 +16,10 @@ export class CreateEstoqueDto {
   })
   quantidade_total_unidade: boolean;
 
-  // @IsNotEmpty()
-  // @ApiProperty({
-  //   example: '',
-  //   description: 'Codigo de barra de identificação do produto.',
-  // })
-  // codigo_barra: string;
+  @IsNotEmpty()
+  @ApiProperty({
+    example: '',
+    description: 'Codigo de barra de identificação do produto.',
+  })
+  codigo_barra: string;
 }
