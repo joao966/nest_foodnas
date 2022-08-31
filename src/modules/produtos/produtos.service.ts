@@ -11,14 +11,12 @@ export class ProdutosService {
     private produtoRepository: typeof Produtos
   ) {}
 
-
   async create(createProdutoDto: CreateProdutoDto) {
     return await this.produtoRepository.create(createProdutoDto);
   }
 
   async findAll(): Promise<typeListProduto>  {
     const response = await this.produtoRepository.findAll<Produtos>();
-    
     return {
       message: "success",
       count: response.length,

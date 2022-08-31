@@ -19,11 +19,8 @@ export class Estoques extends Model<CreateEstoqueDto> {
 
   @ForeignKey(() => Produtos)
   @Column
-  produtoId: number
+  produtoId: number;
 
-  // @BelongsTo(() => Produtos)
-  // estoqueId: Produtos
-
-  @HasOne(() => Produtos, 'estoqueId')
+  @HasOne(() => Produtos)
   produto: Produtos;
 }
