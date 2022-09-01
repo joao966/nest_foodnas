@@ -24,9 +24,9 @@ export class EstoquesController {
     return this.estoquesService.findOne(+id);
   }
 
-  @Patch(':codigo_barra')
-  update(@Param('codigo_barra') codigo_barra: string, @Body() updateEstoqueDto: UpdateEstoqueDto) {
-    return this.estoquesService.update(codigo_barra, updateEstoqueDto);
+  @Patch(':codigoBarra')
+  update(@Param('codigoBarra') codigoBarra: string, @Body() updateEstoqueDto: UpdateEstoqueDto) {
+    return this.estoquesService.update(codigoBarra, updateEstoqueDto);
   }
 
   @Delete(':id')

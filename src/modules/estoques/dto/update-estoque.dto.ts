@@ -4,5 +4,5 @@ import { CreateEstoqueDto } from './create-estoque.dto';
 export class UpdateEstoqueDto extends PartialType(CreateEstoqueDto) {
   quantidade_total_caixa?: number;
   quantidade_total_unidade?: boolean;
-  codigo_barra?: string;
+  codigoBarra?: string;
 }

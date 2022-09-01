@@ -13,9 +13,9 @@ export class EstoquesService {
   ) { }
 
   async create(createEstoqueDto: any) {
-    const response = await this.estoqueRepository.create(createEstoqueDto);
-    const { codigo_barra } = createEstoqueDto;
-    const product = await this.produtoRepository.findOne<any>({ where: { codigo_barra } });
+    const { codigoBarra } = createEstoqueDto;
+    const product = await this.produtoRepository.findOne<any>({ where: { codigoBarra } });
+    const response = await this.estoqueRepository.create({...createEstoqueDto, produtoId: product.id });
     const updateEstoqueOnPorudct = {
       nome: product.nome,
       valor: product.valor,
@@ -23,7 +23,7 @@ export class EstoquesService {
       tipo: product.tipo,
       estoqueId: response.id
     }
-    await this.produtoRepository.update(updateEstoqueOnPorudct, { where: { codigo_barra } });
+    await this.produtoRepository.update(updateEstoqueOnPorudct, { where: { codigoBarra } });
     return response;
   }
 
@@ -36,8 +36,8 @@ export class EstoquesService {
     return `This action returns a #${id} estoque`;
   }
 
-  update(codigo_barra: string, updateEstoqueDto: UpdateEstoqueDto) {
-    return this.estoqueRepository.update(updateEstoqueDto, { where: { codigo_barra } });
+  update(codigoBarra: string, updateEstoqueDto: UpdateEstoqueDto) {
+    return this.estoqueRepository.update(updateEstoqueDto, { where: { codigoBarra } });
   }
 
   remove(id: number) {
