@@ -13,7 +13,7 @@ export class CreateProdutoDto {
     example: '',
     description: 'Codigo de barra do produto, unitario ou caixa',
   })
-  codigo_barra: string;
+  codigoBarra: string;
 
   @IsNotEmpty()
   @ApiProperty({

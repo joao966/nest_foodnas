@@ -1,7 +1,6 @@
-import { Table, Column, Model, DataType, ForeignKey, BelongsTo, HasOne, PrimaryKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, ForeignKey, HasOne } from 'sequelize-typescript';
 import { CreateEstoqueDto } from '../dto/create-estoque.dto';
 import { Produtos } from '../../produtos/entities/produto.entity';
-
 
 @Table({tableName: 'estoques'})
 export class Estoques extends Model<CreateEstoqueDto> {
@@ -9,13 +8,13 @@ export class Estoques extends Model<CreateEstoqueDto> {
     type: DataType.INTEGER,
     allowNull: false,
   })
-  quantidade_total_caixa: number;
+  quantidade: number;
 
   @Column({
-    type: DataType.BOOLEAN,
+    type: DataType.STRING,
     allowNull: false,
   })
-  quantidade_total_unidade: boolean;
+  codigoBarra: string;
 
   @ForeignKey(() => Produtos)
   @Column
